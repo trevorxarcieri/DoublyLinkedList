@@ -47,16 +47,15 @@ public:
 
     // Insert a new element at the front of the list
     void insertFront(const T& value) {
-        Node* newNode = new Node(value);  // Create a new node
         if (isEmpty()) {
+            Node* newNode = new Node(value);  // Create a new node
             // If the list is empty, point head to the new node and make it circular
+            newNode->next = newNode;
+            newNode->prev = newNode; // Prev and next must be assigned outside of constructor because constructor returns pointer to new node after its completion
             head = newNode;
-            head->next = head;
-            head->prev = head;
         } else {
+            Node* newNode = new Node(value, head->prev, head);  // Create a new node
             // Insert the new node before the current head
-            newNode->next = head;
-            newNode->prev = head->prev;
             head->prev->next = newNode;
             head->prev = newNode;
             head = newNode;  // Update head to the new node

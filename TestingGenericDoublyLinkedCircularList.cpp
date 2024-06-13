@@ -21,13 +21,13 @@ int main() {
     
     std::cout << "Testing removals...\n";
     if (!intList.isEmpty()) {
+        std::cout << "Removed from back: " << intList.removeBack() << " (expected 20)\n";  // Remove and display the back item
+    }
+    if (!intList.isEmpty()) {
         std::cout << "Removed at index 1: " << intList.removeAtIndex(1) << " (expected 15)\n";  // Remove and display the middle item
     }
     if (!intList.isEmpty()) {
         std::cout << "Removed from front: " << intList.removeFront() << " (expected 10)\n";  // Remove and display the front item
-    }
-    if (!intList.isEmpty()) {
-        std::cout << "Removed from back (last item): " << intList.removeBack() << " (expected 20)\n";  // Remove and display the back item
     }
 
     // Check if the list is empty after removals
